@@ -35,11 +35,10 @@ class LugarController extends Controller
     }
     public function lugaradm(){
         $lugares = Lugares::all();
-        foreach ($lugares as $conteudo2) {
-            $user = User::where('id', $conteudo2->user_id)->first();
-        }
 
-        return view('admin.lugar.lugar', ['lugares' => $lugares, 'user' => $user]);
+
+
+        return view('admin.lugar.lugar', ['lugares' => $lugares]);
 
     }
     public function admin(){
@@ -88,24 +87,14 @@ class LugarController extends Controller
         return redirect('/admin/lugar')->with('msg', 'Lugar Criado com sucesso!');
 
     }
-    public function postturma(Request $request){
-
-        $turmacreate = new Turma;
-        $turmacreate->nome = $request->titulo;
-        $turmacreate->status = $request->private;
-        
-                $turmacreate->save();
-
-        return redirect('/admin/turmas')->with('msg', 'Lugar Criado com sucesso!');
-
-    }
+    
     public function postuser(Request $request){
 
         $newuser = new User;
         $newuser->name = $request->nome;
         $newuser->email = $request->email;
         $newuser->password = Hash::make($request->senha);
-        
+        $newuser->turma = $request->private3;
         $newuser->utype = $request->private2;
         
                 $newuser->save();
@@ -149,17 +138,15 @@ class LugarController extends Controller
 
 
         $conteudos = Conteudo::all();
-        foreach ($conteudos as $conteudo2) {
-            $user = User::where('id', $conteudo2->user_id)->first();
-        }
-        
 
         
 
+        
 
 
 
-        return view('admin.conteudo.conteudo', ['conteudos'=>$conteudos, 'user' => $user]);
+
+        return view('admin.conteudo.conteudo', ['conteudos'=>$conteudos]);
     }
     public function profile(){
 
@@ -179,6 +166,9 @@ class LugarController extends Controller
         $conteudocreate->estilobtn = $request->private;
         $conteudocreate->nomebtn = $request->titulobotao;
         $conteudocreate->linkbtn = $request->linkbotao;
+        //$user = auth()->user();
+        //$conteudocreate->turma = $user->turma;
+        $conteudocreate->turma = $request->private4;
         $conteudocreate->status = $request->private2;
         
         if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -203,7 +193,24 @@ class LugarController extends Controller
 
     {
 
-        //$turmas = Turma::all();
+        
         return view('admin.users.create.createuser');
+    }
+
+    public function viewlugardadm($id)
+    {
+        $lugar = Lugares::findOrFail($id);
+        $lugarowner = User::where('id', $lugar->user_id)->first()->toArray();
+
+        return view('admin.lugar.view.viewlugar', ['lugar' => $lugar, 'lugarowner' => $lugarowner ]);
+    }
+
+    public function viewconteudoadm($id)
+    {
+        $conteudo = Conteudo::findOrFail($id);
+        $conteudoowner = User::where('id', $conteudo->user_id)->first()->toArray();
+
+        return view('admin.conteudo.view.viewconteudo', ['conteudo' => $conteudo, 'conteudoowner' => $conteudoowner ]);
+        
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <div id="lugar-create-container" class="col-md-6 offset-md-3">
  
-  
+  <a href="users/create"><button class="btn btn-success">Criar Usuário</button></a><br><br>
   
   <table class="table">
   <thead>

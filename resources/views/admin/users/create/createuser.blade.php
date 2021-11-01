@@ -31,7 +31,24 @@
         <option value="2">Professor</option>
         <option value="3">Administrador</option>
 
+    </select><br><br>
+    </div>
+
+    <div class="form-group">
+
+
+        <label for="title">Turma</label><br>
+        <select name="private3" class="form-control-select" id="private2">
+        
+        
+        <option value="1">6° Ano</option>
+        <option value="2">7° Ano</option>
+        <option value="3">8° Ano</option>
+        <option value="4">9° Ano</option>
+        <option value="5">Administrador</option>
+
     </select>
+    </div>
     <div class="form-group">
 
 

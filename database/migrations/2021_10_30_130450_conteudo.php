@@ -22,6 +22,7 @@ class Conteudo extends Migration
             $table->string('linkbtn');
             $table->text('foto');
             $table->string('status');
+            $table->string('turma');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

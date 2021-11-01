@@ -348,3 +348,10 @@ footer p {
 .navbartest {
   text-align: left;
 }
+.mapaview {
+  text-align: center;
+}
+
+.fotoview {
+  max-width: 50px;
+}

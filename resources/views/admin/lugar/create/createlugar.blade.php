@@ -27,6 +27,7 @@
         <option value="1">Sim</option>
     </select>
     </div>
+    
     <div class="form-group">
         <label for="image">Imagem</label><br><br>
         <input type="file" class="form-control-file" id="image" name="image" required>
