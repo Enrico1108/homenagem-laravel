@@ -37,10 +37,21 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/conteu
 Route::post('/admin/lugar', [LugarController::class, 'postlugar']);
 Route::post('/admin/turma', [LugarController::class, 'postturma']);
 Route::post('/admin/users', [LugarController::class, 'postuser']);
+Route::post('/professor/users', [LugarController::class, 'postuserprof']);
 Route::post('/admin/conteudo', [LugarController::class, 'createconteudopost']);
 
 //PROFESSORES
-Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/dashboard', [LugarController::class, 'profdash'])->name('professor.dashboard');
+Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/users', [LugarController::class, 'usersprof'])->name('professor.users.users');
+Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/dashboard', function () {return view('professor.dashboard');})->name('professor.dashboard');
+Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/users/view/{id}', [LugarController::class, 'usersviewprof'])->name('professor.users.view');
+Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/users/create', [LugarController::class, 'createuserview'])->name('professor.users.create.createuser');
+
+
+
+
+
+
+
 
 //USUÁRIOS
 Route::middleware(['auth:sanctum', 'verified'])->get('/user/dashboard', [LugarController::class, 'userdash'])->name('dashboard');

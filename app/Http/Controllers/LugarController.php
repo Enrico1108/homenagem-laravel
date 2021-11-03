@@ -102,6 +102,20 @@ class LugarController extends Controller
         return redirect('/admin/users')->with('msg', 'Usúario Criado com sucesso!');
 
     }
+    public function postuserprof(Request $request){
+
+        $newuser1 = new User;
+        $newuser1->name = $request->nome;
+        $newuser1->email = $request->email;
+        $newuser1->password = Hash::make($request->senha);
+        $newuser1->turma = $request->private3;
+        $newuser1->utype = $request->private2;
+        
+                $newuser1->save();
+
+        return redirect('/professor/users')->with('msg', 'Usúario Criado com sucesso!');
+
+    }
     public function editlugar(Request $request) {
 
         Lugares::findOrFail($request->id)->update($request->all());
@@ -114,6 +128,13 @@ class LugarController extends Controller
         return view('admin.users.users', ['users' => $users]);
 
     }
+    public function usersprof(){
+        $users = User::all();
+        $user = auth()->user();
+
+        return view('admin.users.users', ['users' => $users, 'user' => $user]);
+
+    }
     public function turmaforms(){
         
 
@@ -121,6 +142,12 @@ class LugarController extends Controller
 
     }
     public function usersview($id){
+        $user = User::findOrFail($id);
+
+        return view('admin.users.view', ['user' => $user]);
+
+    }
+    public function usersviewprof($id){
         $user = User::findOrFail($id);
 
         return view('admin.users.view', ['user' => $user]);
