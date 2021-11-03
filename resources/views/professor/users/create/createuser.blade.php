@@ -54,7 +54,7 @@
 
 
     <br><br>
-    <input type="submit" class="btn btn-primary" value="Criar Lugar">
+    <input type="submit" class="btn btn-primary" value="Criar Usuário">
 
 </form>
 

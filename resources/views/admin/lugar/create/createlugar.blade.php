@@ -27,6 +27,22 @@
         <option value="1">Sim</option>
     </select>
     </div>
+    <div class="form-group">
+
+
+        <label for="title">Turma</label><br>
+        <select name="private4" id="private4">
+        
+        
+
+        <option value="1">6° Ano</option>
+        <option value="2">7° Ano</option>
+        <option value="3">8° Ano</option>
+        <option value="4">9° Ano</option>
+        
+
+    </select>
+    </div><br>
     
     <div class="form-group">
         <label for="image">Imagem</label><br><br>

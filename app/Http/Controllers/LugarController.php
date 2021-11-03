@@ -41,6 +41,15 @@ class LugarController extends Controller
         return view('admin.lugar.lugar', ['lugares' => $lugares]);
 
     }
+    public function lugarprof(){
+        $user = auth()->user();
+        $lugares = Lugares::all()->where('turma', $user->turma);
+
+
+
+        return view('admin.lugar.lugar', ['lugares' => $lugares]);
+
+    }
     public function admin(){
         return view('admin.admin');
 
@@ -82,6 +91,7 @@ class LugarController extends Controller
         }
         $user = auth()->user();
         $lugarcreate->user_id = $user->id;
+        $lugarcreate->turma = $request->private4;
         $lugarcreate->save();
 
         return redirect('/admin/lugar')->with('msg', 'Lugar Criado com sucesso!');
@@ -129,10 +139,16 @@ class LugarController extends Controller
 
     }
     public function usersprof(){
-        $users = User::all();
         $user = auth()->user();
+        
+        $users = User::all()->where('turma', $user->turma);
 
-        return view('admin.users.users', ['users' => $users, 'user' => $user]);
+        
+
+        
+        
+
+        return view('professor.users.users', ['users' => $users]);
 
     }
     public function turmaforms(){
@@ -161,6 +177,13 @@ class LugarController extends Controller
 
         return view('admin.conteudo.create.createconteudo');
     }
+    public function createconteudoprof(){
+
+
+
+
+        return view('professor.conteudo.create.createconteudo');
+    }
     public function conteudo(){
 
 
@@ -174,6 +197,20 @@ class LugarController extends Controller
 
 
         return view('admin.conteudo.conteudo', ['conteudos'=>$conteudos]);
+    }
+    public function conteudoprof(){
+
+        $user = auth()->user();
+        $conteudos = Conteudo::all()->where('turma', $user->turma);
+
+        
+
+        
+
+
+
+
+        return view('professor.conteudo.conteudo', ['conteudos'=>$conteudos]);
     }
     public function profile(){
 
@@ -214,6 +251,35 @@ class LugarController extends Controller
 
         return redirect('/admin/conteudo')->with('msg', 'Conteudo Criado com sucesso!');
     }
+    public function createconteudopostprof(Request $request){
+        $conteudocreate = new Conteudo;
+        $user = auth()->user();
+        $conteudocreate->titulo = $request->titulo;
+        $conteudocreate->descricao = $request->descricao;
+        $conteudocreate->estilobtn = $request->private;
+        $conteudocreate->nomebtn = $request->titulobotao;
+        $conteudocreate->linkbtn = $request->linkbotao;
+        //$user = auth()->user();
+        $conteudocreate->turma = $user->turma;
+        
+        $conteudocreate->status = $request->private2;
+        
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/conteudo'), $imageName);
+
+            $conteudocreate->foto = $imageName;
+
+        }
+        
+        $conteudocreate->user_id = $user->id;
+        $conteudocreate->save();
+
+        return redirect('/professor/conteudo')->with('msg', 'Conteudo Criado com sucesso!');
+    }
 
      public function createuserview()
 
@@ -231,6 +297,13 @@ class LugarController extends Controller
 
         return view('admin.lugar.view.viewlugar', ['lugar' => $lugar, 'lugarowner' => $lugarowner ]);
     }
+    public function viewlugardprof($id)
+    {
+        $lugar = Lugares::findOrFail($id);
+        $lugarowner = User::where('id', $lugar->user_id)->first()->toArray();
+
+        return view('professor.lugar.view.viewlugar', ['lugar' => $lugar, 'lugarowner' => $lugarowner ]);
+    }
 
     public function viewconteudoadm($id)
     {
@@ -238,6 +311,14 @@ class LugarController extends Controller
         $conteudoowner = User::where('id', $conteudo->user_id)->first()->toArray();
 
         return view('admin.conteudo.view.viewconteudo', ['conteudo' => $conteudo, 'conteudoowner' => $conteudoowner ]);
+        
+    }
+    public function viewconteudoprof($id)
+    {
+        $conteudo = Conteudo::findOrFail($id);
+        $conteudoowner = User::where('id', $conteudo->user_id)->first()->toArray();
+
+        return view('professor.conteudo.view.viewconteudo', ['conteudo' => $conteudo, 'conteudoowner' => $conteudoowner ]);
         
     }
 }

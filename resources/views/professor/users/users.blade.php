@@ -15,12 +15,17 @@
     </tr>
   </thead>
   <tbody>
+
     
   @foreach($users as $users)
     <tr>
       <th scope="row">{{$users->name}}</th>
       <td>{{$users->email}}</td>
-    
+
+      @php
+      
+  @endphp
+
       @if($users->utype == 1)
       <td>
           Aluno
