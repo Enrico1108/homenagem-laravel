@@ -67,6 +67,10 @@ class LugarController extends Controller
         return view('admin.lugar.create.createlugar');
 
     }
+    public function createprof(){
+        return view('professor.lugar.create.createlugar');
+
+    }
     public function profileadm(){
         return view('admin.profile.profile');
 
@@ -95,6 +99,32 @@ class LugarController extends Controller
         $lugarcreate->save();
 
         return redirect('/admin/lugar')->with('msg', 'Lugar Criado com sucesso!');
+
+    }
+    public function postlugarprof(Request $request){
+
+        $lugarcreate = new Lugares;
+        $lugarcreate->titulo = $request->titulo;
+        $lugarcreate->descricao = $request->descricao;
+        $lugarcreate->mapa = $request->mapa;
+        $lugarcreate->status = $request->private;
+        
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/lugares'), $imageName);
+
+            $lugarcreate->foto = $imageName;
+
+        }
+        $user = auth()->user();
+        $lugarcreate->user_id = $user->id;
+        $lugarcreate->turma = $user->turma;
+        $lugarcreate->save();
+
+        return redirect('/professor/lugar')->with('msg', 'Lugar Criado com sucesso!');
 
     }
     
