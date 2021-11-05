@@ -1,30 +1,44 @@
 name: Tests
+
 on: [push]
+
 jobs:
   tests:
     name: Run tests
     runs-on: ubuntu-latest
+
+
+
     steps:
       - uses: actions/checkout@v1
 
-- name: Install dependencies
-  run: |
-    php --version
+      - name: Verify MySQL connection
+        run: |
+          mysql --version
+          
+         
+
+   
+
+      - name: Install dependencies
+        run: |
+          php --version
+          
+
+      - name: Boot Laravel application
+        run: |
+          cp .env.github .env
+          php artisan key:generate
+          php artisan --version
+
+      - name: Migrate database
+        run: |
+          mysql --version
+          php artisan migrate:fresh --seed
 
 
-- name: Boot Laravel application
-  run: |
-    cp .env.github .env
-    php artisan key:generate
-    php artisan --version
 
-
-- name: Migrate database
-  run: |
-    mysql --version
-    php artisan migrate:fresh --seed
-
-- name: Run tests
-  run: |
-    ./vendor/bin/phpunit --version
-    ./vendor/bin/phpunit
+      - name: Run tests
+        run: |
+          ./vendor/bin/phpunit --version
+          ./vendor/bin/phpunit
