@@ -24,7 +24,7 @@
 
 
 <h3>Preview Botão:</h3>
-<button type="button" class="{{$conteudo->estilobtn}}">{{$conteudo->nomebtn}}</button>
+<button type="button" class="{{$conteudo->estilobtn}}" onclick="window.location.href='{{ $conteudo->linkbtn}}';">{{ $conteudo->nomebtn  }}</button>
 <br><br>
 <p>Link de redirecionamento: {{$conteudo->linkbtn}}</p>
 
