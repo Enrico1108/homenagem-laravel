@@ -17,6 +17,7 @@ use App\Http\Controllers\LugarController;
 Route::get('/', [LugarController::class, 'index']);
 Route::get('/sobre', [LugarController::class, 'sobre']);
 Route::get('/lugares', [LugarController::class, 'lugares']);
+Route::get('/tourarquitetonico', [LugarController::class, 'oitavo']);
 Route::get('/lugar/{id}', [LugarController::class, 'lugar']);
 
 //ADMIN

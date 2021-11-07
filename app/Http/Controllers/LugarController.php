@@ -23,7 +23,21 @@ class LugarController extends Controller
         $lugares = Lugares::all();
     return view('lugares', ['busca' => $busca],
 ['lugares' => $lugares]);
+
     }
+
+
+
+
+    public function oitavo() {
+        $busca = request('busca');
+        $lugares = Lugares::all()->where('turma', '3');
+        $conteudo = Conteudo::all()->where('turma', '3');
+    return view('oitavo', ['busca' => $busca],
+['lugares' => $lugares, 'conteudo' => $conteudo]);
+
+    }
+
     public function lugar($id) {
 
             $lugares = Lugares::findOrFail($id);
