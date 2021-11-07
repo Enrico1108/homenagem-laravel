@@ -34,11 +34,7 @@ jobs:
       - name: Migrate database
         run: |
           mysql --version
-          php artisan migrate:fresh --seed
+          
 
 
 
-      - name: Run tests
-        run: |
-          ./vendor/bin/phpunit --version
-          ./vendor/bin/phpunit
