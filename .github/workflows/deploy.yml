@@ -19,20 +19,3 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
           
-<<<<<<< HEAD
-=======
-
-      - name: Boot Laravel application
-        run: |
-          cp .env.github .env
-          php artisan key:generate
-          php artisan --version
-
-      - name: Migrate database
-        run: |
-          mysql --version
-          
-
-
-
->>>>>>> ff08c1ef88dd42f4036a0593f25d10c178fa8f6a
