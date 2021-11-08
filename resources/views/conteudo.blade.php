@@ -9,7 +9,7 @@
 </div>
     
 <div class="imagem-cont">
-  <img src="/img/lugares/{{$lugares->foto}}" alt="">
+  <img src="/img/conteudo/{{$lugares->foto}}" alt="">
 </div>
 
 
@@ -25,10 +25,7 @@
 
 <div class="lugares">
 
-@php
-
-    echo $lugares->mapa;
-@endphp
+<button class="{{$lugares->estilobtn}}" onclick="window.location.href='{{$lugares->linkbtn}}';">{{$lugares->nomebtn}}</button>
  
   <br><br><br>
 

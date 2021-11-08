@@ -2,9 +2,7 @@
 @section('title', 'Home')
 @section('content')
 
-@if ($busca != '')
-<p>O usuario está buscando por: {{$busca}}</p>
-@else
+
 
 
 <div id="events-container" class="col-md-12">
@@ -27,7 +25,7 @@
 
 </div>
 
-@endif
+
 
 
 

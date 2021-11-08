@@ -58,7 +58,7 @@
     </div><br>
     <div class="form-group">
         <label for="descricao">Link do Botão</label>
-        <input type="text" class="form-control" id="linkbotao" name="linkbotao" placeholder="Insira o titúlo do seu lugar" required>
+        <input type="url" class="form-control" id="linkbotao" name="linkbotao" placeholder="Insira o titúlo do seu lugar" required>
     </div><br>
     <div class="form-group">
 

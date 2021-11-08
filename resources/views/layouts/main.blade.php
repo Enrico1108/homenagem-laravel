@@ -42,8 +42,8 @@
     <li><a class="active" href="/">Home</a></li>
     <li><a href="/lugares">Tour Literário</a></li>
     <li><a href="/tourarquitetonico">8°</a></li>
-    <li><a href="/lugares">7°</a></li>
-    <li><a href="/lugares">6°</a></li>
+    <li><a href="/setimo">7°</a></li>
+    <li><a href="/sexto">6°</a></li>
     <li><a href="/sobre">Sobre Nós</a></li>
     @guest
     <li><a href="/login">Login</a></li>

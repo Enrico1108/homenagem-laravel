@@ -18,7 +18,10 @@ Route::get('/', [LugarController::class, 'index']);
 Route::get('/sobre', [LugarController::class, 'sobre']);
 Route::get('/lugares', [LugarController::class, 'lugares']);
 Route::get('/tourarquitetonico', [LugarController::class, 'oitavo']);
+Route::get('/setimo', [LugarController::class, 'setimo']);
+Route::get('/sexto', [LugarController::class, 'sexto']);
 Route::get('/lugar/{id}', [LugarController::class, 'lugar']);
+Route::get('/conteudo/{id}', [LugarController::class, 'conteudoind']);
 
 //ADMIN
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');

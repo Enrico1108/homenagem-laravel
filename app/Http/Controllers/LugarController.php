@@ -19,9 +19,10 @@ class LugarController extends Controller
 
     }
     public function lugares() {
-        $busca = request('busca');
-        $lugares = Lugares::all();
-    return view('lugares', ['busca' => $busca],
+        
+        $lugares = Lugares::all()->where( 'status', '1')->where('turma', '4');
+       
+    return view('lugares',
 ['lugares' => $lugares]);
 
     }
@@ -30,14 +31,30 @@ class LugarController extends Controller
 
 
     public function oitavo() {
-        $busca = request('busca');
-        $lugares = Lugares::all()->where('turma', '3');
-        $conteudo = Conteudo::all()->where('turma', '3');
-    return view('oitavo', ['busca' => $busca],
+        
+        $lugares = Lugares::all()->where('turma', '3')->where('status', '1');
+        $conteudo = Conteudo::all()->where('turma', '3')->where('status', '1');
+    return view('oitavo', 
 ['lugares' => $lugares, 'conteudo' => $conteudo]);
 
     }
 
+    public function setimo() {
+        
+        $lugares = Lugares::all()->where('turma', '2')->where('status', '1');
+        $conteudo = Conteudo::all()->where('turma', '2')->where('status', '1');
+    return view('setimo', 
+['lugares' => $lugares, 'conteudo' => $conteudo]);
+
+    }
+    public function sexto() {
+        
+        $lugares = Lugares::all()->where('turma', '1')->where('status', '1');
+        $conteudo = Conteudo::all()->where('turma', '1')->where('status', '1');
+    return view('sexto', 
+['lugares' => $lugares, 'conteudo' => $conteudo]);
+
+    }
     public function lugar($id) {
 
             $lugares = Lugares::findOrFail($id);
@@ -47,6 +64,25 @@ class LugarController extends Controller
         
 
     }
+    public function conteudoind($id) {
+
+        $lugares = Conteudo::findOrFail($id);
+    
+        return view('conteudo', ['lugares' => $lugares]);
+    
+    
+
+}
+
+public function userdash() {
+
+    
+
+    return view('user.dashboard');
+
+
+
+}
     public function lugaradm(){
         $lugares = Lugares::all();
 
