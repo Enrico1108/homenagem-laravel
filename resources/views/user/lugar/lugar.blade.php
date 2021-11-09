@@ -36,7 +36,7 @@
 
                         @endif
 
-                        <td><a href="lugar/edit/{{ $lugar->id }}"><button
+                        <td><a href="edit/{{ $lugar->id }}"><button
                                     class="btn btn-primary">Editar</button></a><br><br>
                             <a href="lugar/view/{{ $lugar->id }}"><button class="btn btn-success">Visualizar</button></a>
                         </td>

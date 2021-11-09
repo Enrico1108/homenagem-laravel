@@ -8,7 +8,7 @@
 <div id="lugar-create-container" class="col-md-6 offset-md-3">
  
   
-  <a href="create"><button class="btn btn-success">Criar Lugar</button></a>
+  <a href="conteudo/create"><button class="btn btn-success">Criar Conteúdo</button></a>
   <table class="table">
   <thead>
     <tr>
@@ -38,8 +38,8 @@
             
             @endif
 
-            <td><a href="edit/{{$lugar->id}}"><button class="btn btn-primary" >Editar</button></a><br><br>
-    <a href="view/{{$lugar->id}}"><button class="btn btn-success" >Visualizar</button></a></td>
+            <td><a href="conteudo/edit/{{$lugar->id}}"><button class="btn btn-primary" >Editar</button></a><br><br>
+    <a href="conteudo/view/{{$lugar->id}}"><button class="btn btn-success" >Visualizar</button></a></td>
     </tr>
     @endforeach
     

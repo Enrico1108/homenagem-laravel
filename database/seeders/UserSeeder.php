@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
+use DB;
 class UserSeeder extends Seeder
 {
     /**
@@ -13,12 +15,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Enrico Marques',
-            'email' => 'enricothulio.marques@gmail.com',
-            'password' => Hash::make('password'),
-            'turma' => '4',
-            'utype' => '3',
-        ]);
+
+
+        $zombies = array(
+            ['name' => 'Enrico Marques', 'email' => 'enricothulio.marques@gmail.com', 'password' => Hash::make('Casa2209'), 'turma' => '5', 'utype' => '3']);
+            
+        \DB::table('users')->insert( $zombies );
     }
+//php artisan db:seed --class=UserSeeder
 }

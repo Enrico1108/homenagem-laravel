@@ -47,7 +47,7 @@
     <li><a href="/sobre">Sobre Nós</a></li>
     @guest
     <li><a href="/login">Login</a></li>
-    <li><a href="/register">Cadastro</a></li>
+    
     @endguest
     @auth
     @php
@@ -68,10 +68,17 @@
     </div>
     @endif
    
-    
+    <li><form action="/logout" method="POST">
+    @csrf
+    <a href="/logout" onclick="event.preventDefault();
+    this.closest('form').submit();">Sair</a>
+  
+  
+  </form></li>
         @php
         $user = auth()->user();
         @endphp
+
         <div class="fotoperfil">
 
   <li>  <img src=" {{ $user->profile_photo_url }}" alt=""></li>

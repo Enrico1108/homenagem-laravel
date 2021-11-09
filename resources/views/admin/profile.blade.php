@@ -11,9 +11,40 @@
 
 <p>{{$user->email}}</p>
 
-<img src=" {{ $user->profile_photo_url }}" alt="">
+<img src=" {{ $user->profile_photo_url }}" alt=""><br><br>
+<label for="'">Turma:</label>
 
-{{ $user }}
+@if($user->turma == '1')
+
+<p>6° Ano</p>
+
+@endif
+@if($user->turma == '2')
+
+<p>7° Ano</p>
+
+@endif
+
+@if($user->turma == '3')
+
+<p>8° Ano</p>
+
+@endif
+
+@if($user->turma == '4')
+
+<p>9° Ano</p>
+
+@endif
+
+@if($user->turma == '5')
+
+<p>Administrador</p>
+
+@endif
+
+
+
    
 
 

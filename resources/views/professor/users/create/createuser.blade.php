@@ -28,8 +28,7 @@
         
         
         <option value="1">Aluno</option>
-        <option value="2">Professor</option>
-        <option value="3">Administrador</option>
+
 
     </select><br><br>
     </div>
@@ -45,7 +44,7 @@
         <option value="2">7° Ano</option>
         <option value="3">8° Ano</option>
         <option value="4">9° Ano</option>
-        <option value="5">Administrador</option>
+        
 
     </select>
     </div>

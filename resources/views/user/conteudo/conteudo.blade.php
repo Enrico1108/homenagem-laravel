@@ -8,7 +8,7 @@
 <div id="lugar-create-container" class="col-md-6 offset-md-3">
  
   
-  <a href="conteudo/create"><button class="btn btn-success">Criar Conteúdo</button></a>
+  <a href="conteudo/create"><button class="btn btn-success">Criar Lugar</button></a>
   <table class="table">
   <thead>
     <tr>

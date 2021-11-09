@@ -64,6 +64,7 @@ class AttemptToAuthenticate
                 return redirect(RouteServiceProvider::PROF_HOME);
             }
             else if(\Auth::user()->utype === '1'){
+                session(['utype' => '1']);
                 
                 return redirect(RouteServiceProvider::HOME);
             }

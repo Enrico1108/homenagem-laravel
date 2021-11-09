@@ -3,7 +3,7 @@
 @section('content')
     <div id="lugar-create-container" class="col-md-6 offset-md-3">
 
-        <a href="create"><button class="btn btn-success">Criar Lugar</button></a>
+        <a href="lugar/create"><button class="btn btn-success">Criar Lugar</button></a>
 
         <table class="table">
             <thead>
@@ -36,9 +36,9 @@
 
                         @endif
 
-                        <td><a href="edit/{{ $lugar->id }}"><button
+                        <td><a href="lugar/edit/{{ $lugar->id }}"><button
                                     class="btn btn-primary">Editar</button></a><br><br>
-                            <a href="view/{{ $lugar->id }}"><button class="btn btn-success">Visualizar</button></a>
+                            <a href="lugar/view/{{ $lugar->id }}"><button class="btn btn-success">Visualizar</button></a>
                         </td>
                     </tr>
                 @endforeach
