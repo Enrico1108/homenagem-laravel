@@ -6,7 +6,7 @@
 <div id="lugar-create-container" class="col-md-6 offset-md-3">
     
     <h1>Crie o seu lugar</h1>
-    <form action="/admin/lugar/" method="POST" enctype="multipart/form-data">
+    <form action="/admin/lugar" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="titulo">Lugar</label>

@@ -20,6 +20,8 @@
     @endif
     <h3>Criado por:</h3>
     <p>{{$conteudoowner['name']}}</p>
+    <h3>Turma</h3>
+    <p>{{$conteudo}}</p>
 <br>
 
 

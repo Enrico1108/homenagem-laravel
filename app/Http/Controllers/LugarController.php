@@ -553,7 +553,7 @@ public function editcontnovaprof($id)
     {
 
         
-        return view('professor.users.create.createuser');
+        return view('admin.users.create.createuser');
     }
 
     public function viewlugardadm($id)
