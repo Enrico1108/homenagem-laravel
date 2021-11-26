@@ -21,7 +21,21 @@
     <h3>Criado por:</h3>
     <p>{{$conteudoowner['name']}}</p>
     <h3>Turma</h3>
-    <p>{{$conteudo}}</p>
+    @if ($conteudo->turma == '1')
+    <p>6° Ano</p>
+    @endif
+    @if ($conteudo->turma == '2')
+    <p>7° Ano</p>
+    @endif
+    @if ($conteudo->turma == '3')
+    <p>8° Ano</p>
+    @endif
+    @if ($conteudo->turma == '4')
+    <p>9° Ano</p>
+    @endif
+    @if ($conteudo->turma == '5')
+    <p>Administrador</p>
+    @endif
 <br>
 
 
@@ -30,7 +44,8 @@
 <br><br>
 <p>Link de redirecionamento: {{$conteudo->linkbtn}}</p>
 
-
+<label for="image">Imagem</label><br><br>
+        <img src="/img/conteudo/{{$conteudo->foto}}" alt="" class="img-preview">
 
 
 

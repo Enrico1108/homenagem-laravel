@@ -44,8 +44,25 @@
 @endif
 
 
+<label for="">Tipo de Usuário</label>
 
-   
+@if($user->utype == '1')
+
+<p>Aluno</p>
+
+@endif
+
+@if($user->utype == '2')
+
+<p>Professor</p>
+
+@endif
+
+@if($user->utype == '3')
+
+<p>Administrador</p>
+
+@endif  
 
 
 
