@@ -34,21 +34,21 @@
 <button type="button" class="btn btn-outline-dark">Dark Outline</button><br><br>
         <label for="title">Estilo do botão</label><br>
         <select name="private" id="private">
-        <option value="btn btn-primary">Primary</option>
-        <option value="btn btn-secondary">Secondary</option>
-        <option value="btn btn-success">Success</option>
-        <option value="btn btn-danger">Danger</option>
-        <option value="btn btn-warning">Warning</option>
-        <option value="btn btn-info">Info</option>
-        <option value="btn btn-light">Light</option>
-        <option value="btn btn-dark">Dark</option>
-        <option value="btn btn-outline-primary">Primary Outline</option>
-        <option value="btn btn-outline-secondary">Secondary Outline</option>
-        <option value="btn btn-outline-success">Success Outline</option>
-        <option value="btn btn-outline-danger">Danger Outline</option>
-        <option value="btn btn-outline-warning">Warning Outline</option>
-        <option value="btn btn-outline-info">Info Outline</option>
-        <option value="btn btn-outline-dark">Dark Outline</option>
+            <option value="btn btn-primary" {{$lugar->estilobtn == 'btn btn-primary' ? "selected='selected'" :""}}>Primary</option>
+            <option value="btn btn-secondary" {{$lugar->estilobtn == 'btn btn-secondary' ? "selected='selected'" :""}}>Secondary</option>
+            <option value="btn btn-success" {{$lugar->estilobtn == 'btn btn-success' ? "selected='selected'" :""}}>Success</option>
+            <option value="btn btn-danger" {{$lugar->estilobtn == 'btn btn-danger' ? "selected='selected'" :""}}>Danger</option>
+            <option value="btn btn-warning" {{$lugar->estilobtn == 'btn btn-warning' ? "selected='selected'" :""}}>Warning</option>
+            <option value="btn btn-info" {{$lugar->estilobtn == 'btn btn-info' ? "selected='selected'" :""}}>Info</option>
+            <option value="btn btn-light" {{$lugar->estilobtn == 'btn btn-light' ? "selected='selected'" :""}}>Light</option>
+            <option value="btn btn-dark" {{$lugar->estilobtn == 'btn btn-dark' ? "selected='selected'" :""}}>Dark</option>
+            <option value="btn btn-outline-primary" {{$lugar->estilobtn == 'btn btn-outline-primary' ? "selected='selected'" :""}}>Primary Outline</option>
+            <option value="btn btn-outline-secondary" {{$lugar->estilobtn == 'btn btn-outline-secondary' ? "selected='selected'" :""}}>Secondary Outline</option>
+            <option value="btn btn-outline-success" {{$lugar->estilobtn == 'btn btn-outline-success' ? "selected='selected'" :""}}>Success Outline</option>
+            <option value="btn btn-outline-danger" {{$lugar->estilobtn == 'btn btn-outline-danger' ? "selected='selected'" :""}}>Danger Outline</option>
+            <option value="btn btn-outline-warning" {{$lugar->estilobtn == 'btn btn-outline-warning' ? "selected='selected'" :""}}>Warning Outline</option>
+            <option value="btn btn-outline-info" {{$lugar->estilobtn == 'btn btn-outline-info' ? "selected='selected'" :""}}>Info Outline</option>
+            <option value="btn btn-outline-dark" {{$lugar->estilobtn == 'btn btn-outline-dark' ? "selected='selected'" :""}}>Dark Outline</option>
 
     </select>
     </div><br>

@@ -36,8 +36,7 @@
 
                         @endif
 
-                        <td><a href="edit/{{ $lugar->id }}"><button
-                                    class="btn btn-primary">Editar</button></a><br><br>
+                        <td>
                             <a href="lugar/view/{{ $lugar->id }}"><button class="btn btn-success">Visualizar</button></a>
                         </td>
                     </tr>

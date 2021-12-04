@@ -438,6 +438,34 @@ public function editcontnovaprof($id)
         return redirect('/professor/lugar')->with('msg', 'Conteudo Editado com sucesso!');
 
     }
+    public function edituserfun(Request $request, $id)
+    {
+        
+        $user= User::find($id);
+        $user->name= $request->input('nome');
+        $user->email= $request->input('email');
+        $user->utype= $request->input('private2');
+        $user->turma= $request->input('private3');
+        
+        
+        $user->update();
+        return redirect('/admin/users')->with('msg', 'Conteudo Editado com sucesso!');
+
+    }
+    public function edituserfunprof(Request $request, $id)
+    {
+        
+        $user= User::find($id);
+        $user->name= $request->input('nome');
+        $user->email= $request->input('email');
+        $user->utype= $request->input('private2');
+        $user->turma= $request->input('private3');
+        
+        
+        $user->update();
+        return redirect('/professor/users')->with('msg', 'Conteudo Editado com sucesso!');
+
+    }
     public function lugarupuser(Request $request, $id)
     {
         
@@ -544,10 +572,46 @@ public function editcontnovaprof($id)
         $conteudocreate->user_id = $user->id;
         $conteudocreate->save();
 
-        return redirect('/user/conteudo')->with('msg', 'Conteudo Criado com sucesso!');
+        return redirect('/professor/conteudo')->with('msg', 'Conteudo Criado com sucesso!');
     }
+    public function createconteudopostusr(Request $request){
+        $conteudocreate = new Conteudo;
+        $user = auth()->user();
+        $conteudocreate->titulo = $request->titulo;
+        $conteudocreate->descricao = $request->descricao;
+        $conteudocreate->estilobtn = $request->private;
+        $conteudocreate->nomebtn = $request->titulobotao;
+        $conteudocreate->linkbtn = $request->linkbotao;
+        //$user = auth()->user();
+        $conteudocreate->turma = $user->turma;
+        
+        $conteudocreate->status = '0';
+        
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
+            $requestImage->move(public_path('img/conteudo'), $imageName);
+
+            $conteudocreate->foto = $imageName;
+
+        }
+        
+        $conteudocreate->user_id = $user->id;
+        $conteudocreate->save();
+
+        return redirect('/professor/conteudo')->with('msg', 'Conteudo Criado com sucesso!');
+    }
      public function createuserview()
+
+
+    {
+
+        
+        return view('professor.users.create.createuser');
+    }
+    public function createuserviewadm()
 
 
     {
@@ -555,7 +619,14 @@ public function editcontnovaprof($id)
         
         return view('admin.users.create.createuser');
     }
+    public function vieweditprof($id)
 
+
+    {
+
+        $user = User::findOrFail($id);
+        return view('professor.users.edit.edituser', ['user' => $user]);
+    }
     public function viewlugardadm($id)
     {
         $lugar = Lugares::findOrFail($id);
@@ -583,6 +654,14 @@ public function editcontnovaprof($id)
         $conteudoowner = User::where('id', $conteudo->user_id)->first()->toArray();
 
         return view('admin.conteudo.view.viewconteudo', ['conteudo' => $conteudo, 'conteudoowner' => $conteudoowner ]);
+        
+    }
+    public function edituser($id)
+    {
+        $user = User::findOrFail($id);
+        
+
+        return view('admin.users.edit.edituser', ['user' => $user]);
         
     }
     public function viewconteudoprof($id)

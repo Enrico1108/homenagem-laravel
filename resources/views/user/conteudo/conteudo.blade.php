@@ -38,8 +38,7 @@
             
             @endif
 
-            <td><a href="conteudo/edit/{{$lugar->id}}"><button class="btn btn-primary" >Editar</button></a><br><br>
-    <a href="conteudo/view/{{$lugar->id}}"><button class="btn btn-success" >Visualizar</button></a></td>
+            <td><a href="conteudo/view/{{$lugar->id}}"><button class="btn btn-success" >Visualizar</button></a></td>
     </tr>
     @endforeach
     

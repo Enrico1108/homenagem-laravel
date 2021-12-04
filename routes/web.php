@@ -33,13 +33,14 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/users/
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/conteudo/create', [LugarController::class, 'createconteudo'])->name('admin.conteudo.create.createconteudo');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/conteudo', [LugarController::class, 'conteudo'])->name('admin.conteudo.conteudo');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/profile', [LugarController::class, 'profile'])->name('admin.profile');
-Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/users/create', [LugarController::class, 'createuserview'])->name('admin.users.create.createuser');
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/users/create', [LugarController::class, 'createuserviewadm'])->name('admin.users.create.createuser');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/lugar/view/{id}', [LugarController::class, 'viewlugardadm'])->name('admin.lugar.view.viewlugar');
 
 
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/lugar/edit/{id}', [LugarController::class, 'editlugarnova'])->name('admin.conteudo.view.viewlugar');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/conteudo/edit/{id}', [LugarController::class, 'editcontnova'])->name('admin.conteudo.view.viewlugar');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/conteudo/view/{id}', [LugarController::class, 'viewconteudoadm'])->name('admin.conteudo.view.viewlugar');
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->get('/admin/users/edit/{id}', [LugarController::class, 'edituser'])->name('admin.conteudo.view.viewlugar');
 //POST
 
 
@@ -50,11 +51,12 @@ Route::post('/admin/conteudo', [LugarController::class, 'createconteudopost']);
 Route::post('/professor/conteudo', [LugarController::class, 'createconteudopostprof']);
 Route::post('/professor/lugar', [LugarController::class, 'postlugarprof']);
 Route::post('/user/lugar', [LugarController::class, 'postlugaruser']);
-Route::post('/user/conteudo', [LugarController::class, 'createconteudopostprof']);
+Route::post('/user/conteudo', [LugarController::class, 'createconteudopostusr']);
 Route::put('/admin/lugar/edit/{id}', [LugarController::class, 'lugarupadmin']);
 Route::put('/professor/lugar/edit/{id}', [LugarController::class, 'lugarupprof']);
 Route::put('/user/lugar/edit/{id}', [LugarController::class, 'lugarupuser']);
-
+Route::put('/admin/edit/users/{id}', [LugarController::class, 'edituserfun']);
+Route::put('/professor/edit/users/{id}', [LugarController::class, 'edituserfunprof']);
 Route::put('/admin/conteudo/edit/{id}', [LugarController::class, 'conteudoupadmin']);
 Route::put('/professor/conteudo/edit/{id}', [LugarController::class, 'conteudoupprof']);
 Route::put('/user/conteudo/edit/{id}', [LugarController::class, 'conteudoupuser']);
@@ -72,7 +74,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/lug
 Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/lugar/create', [LugarController::class, 'createprof'])->name('professor.lugar.create');
 Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/profile', [LugarController::class, 'profile'])->name('professor.lugar.create');
 Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/conteudo/edit/{id}', [LugarController::class, 'editcontnovaprof'])->name('admin.conteudo.view.viewlugar');
-
+Route::middleware(['auth:sanctum', 'verified', 'authprof'])->get('/professor/users/edit/{id}', [LugarController::class, 'vieweditprof'])->name('professor.lugar.create');
 
 
 
